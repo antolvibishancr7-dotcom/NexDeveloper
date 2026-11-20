@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexo Developer Profile</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Deep navy-teal gradient background matching screenshot */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050d16;
+      background-image: 
+        radial-gradient(circle at 50% 25%, rgba(14, 74, 110, 0.28) 0%, rgba(5, 13, 22, 0.95) 65%),
+        linear-gradient(180deg, #071624 0%, #040a12 100%);
+      background-attachment: fixed;
+      color: #ffffff;
+    }
+
+    /* Main glassmorphic dark navy card */
+    .profile-card {
+      background: linear-gradient(180deg, rgba(13, 28, 46, 0.88) 0%, rgba(9, 20, 34, 0.94) 100%);
+      border: 1px solid rgba(34, 184, 232, 0.24);
+      box-shadow: 
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(14, 165, 233, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    /* Glowing circular avatar ring */
+    .avatar-glow {
+      box-shadow: 
+        0 0 28px rgba(34, 184, 232, 0.35),
+        0 0 8px rgba(56, 189, 248, 0.4);
+      border: 2px solid rgba(56, 189, 248, 0.28);
+    }
+
+    /* Skill pill badges */
+    .skill-pill {
+      background: rgba(13, 35, 56, 0.75);
+      border: 1px solid rgba(34, 184, 232, 0.38);
+      color: #67d4f6;
+      transition: all 0.2s ease;
+    }
+
+    .skill-pill:hover {
+      background: rgba(20, 52, 82, 0.9);
+      border-color: rgba(56, 189, 248, 0.75);
+      box-shadow: 0 0 14px rgba(34, 184, 232, 0.28);
+      transform: translateY(-1px);
+    }
+
+    /* Cyan glowing name */
+    .name-glow {
+      color: #67d4f6;
+      text-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Vibrant Telegram CTA button */
+    .telegram-btn {
+      background: linear-gradient(90deg, #0ea5e9 0%, #22c1ee 100%);
+      box-shadow: 
+        0 0 28px rgba(14, 165, 233, 0.45),
+        0 6px 20px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .telegram-btn:hover {
+      background: linear-gradient(90deg, #1cb2f5 0%, #38cef8 100%);
+      box-shadow: 
+        0 0 36px rgba(34, 211, 238, 0.65),
+        0 8px 25px rgba(0, 0, 0, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .telegram-btn:active {
+      transform: translateY(0) scale(0.99);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-5 py-10 selection:bg-sky-500/30 selection:text-sky-200">
+
+  <!-- ===================================================================== -->
+  <!-- PROFILE CONFIGURATION (இங்கே உங்கள் விவரங்களை எளிதாக மாற்றலாம்)      -->
+  <!-- ===================================================================== -->
+  <script>
+    const PROFILE_CONFIG = {
+      pageTitle: "Nexo Developer Profile",
+      name: "Nexo",
+      role: "Developer",
+      bio: "Passionate developer creating innovative Telegram bots and mastering modern web technologies. Always learning, always building something amazing.",
+      skills: ["Python", "HTML", "CSS", "JS"],
+      telegramText: "Contact Me on Telegram",
+      telegramUrl: "https://t.me/NexoDeveloper",
+      avatarUrl: "", // உங்கள் சொந்த படத்தின் URL இருந்தால் இங்கே கொடுக்கவும் (காலியாக விட்டால் கீழே உள்ள NX லோகோ SVG தெரியும்)
+      copyright: "© 2026 NEXO DEVELOPER"
+    };
+  </script>
+
+  <!-- Main Centered Profile Card -->
+  <main class="w-full max-w-[380px] animate-fade-in">
+    <div class="profile-card rounded-[26px] px-6 py-10 text-center flex flex-col items-center">
+
+      <!-- Circular Avatar with Soft Cyan Glow -->
+      <div id="avatar-wrapper" class="w-[106px] h-[106px] rounded-full overflow-hidden avatar-glow bg-[#050d16] flex items-center justify-center shrink-0">
+        <!-- Custom NEXO DEVELOPER Logo SVG -->
+        <svg viewBox="0 0 240 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="logoBgGrad" cx="50%" cy="38%" r="62%">
+              <stop offset="0%" stop-color="#0d3756" />
+              <stop offset="58%" stop-color="#061422" />
+              <stop offset="100%" stop-color="#02060c" />
+            </radialGradient>
+            <linearGradient id="cyanBright" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38f2ff" />
+              <stop offset="55%" stop-color="#0ea5e9" />
+              <stop offset="100%" stop-color="#1d4ed8" />
+            </linearGradient>
+            <linearGradient id="blueDeep" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1e3a8a" />
+              <stop offset="55%" stop-color="#2563eb" />
+              <stop offset="100%" stop-color="#22d3ee" />
+            </linearGradient>
+            <linearGradient id="nexoTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#60a5fa" />
+              <stop offset="50%" stop-color="#2563eb" />
+              <stop offset="100%" stop-color="#1e40af" />
+            </linearGradient>
+            <filter id="glowSoft" x="-25%" y="-25%" width="150%" height="150%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Background Circle -->
+          <circle cx="120" cy="120" r="120" fill="url(#logoBgGrad)" />
+
+          <!-- Subtle Tech Circuit Traces & Bokeh Dots -->
+          <g stroke="#22d3ee" stroke-width="1" opacity="0.22" fill="none">
+            <path d="M22 115 H56 L70 101" />
+            <path d="M218 105 H186 L172 119" />
+            <path d="M182 142 H208" />
+            <circle cx="70" cy="101" r="2" fill="#22d3ee" />
+            <circle cx="172" cy="119" r="2" fill="#22d3ee" />
+          </g>
+          <g fill="#38bdf8">
+            <circle cx="38" cy="152" r="2.2" opacity="0.45" />
+            <circle cx="52" cy="176" r="1.6" opacity="0.35" />
+            <circle cx="198" cy="84" r="2.5" opacity="0.4" />
+            <circle cx="204" cy="158" r="2" opacity="0.35" />
+            <circle cx="184" cy="174" r="1.5" opacity="0.3" />
+          </g>
+
+          <!-- Faceted NX Growth Arrow Emblem -->
+          <g filter="url(#glowSoft)">
+            <!-- Left N Vertical Pillar -->
+            <polygon points="56,144 56,56 76,56 76,144" fill="url(#cyanBright)" />
+            <polygon points="66,64 76,56 76,144 66,136" fill="#1e3a8a" opacity="0.55" />
+
+            <!-- N Inner Mini Arrow Accent -->
+            <polygon points="104,64 128,82 116,82 116,104 104,96" fill="url(#cyanBright)" />
+            <polygon points="104,64 92,82 104,82" fill="#67e8f9" />
+
+            <!-- Diagonal Upward Arrow Beam -->
+            <polygon points="76,132 152,66 138,52 184,48 176,94 162,80 88,144" fill="url(#blueDeep)" />
+            <polygon points="76,132 152,66 158,72 82,138" fill="#67e8f9" opacity="0.85" />
+
+            <!-- Right Lower Leg of N -->
+            <polygon points="116,112 134,126 134,144 116,144" fill="url(#blueDeep)" />
+          </g>
+
+          <!-- NEXO Bold Metallic Wordmark -->
+          <text x="120" y="176" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="34" letter-spacing="3.5" fill="url(#nexoTextGrad)" stroke="#93c5fd" stroke-width="0.6">NEXO</text>
+
+          <!-- DEVELOPER Sub-label -->
+          <text x="120" y="196" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="11.5" letter-spacing="4.8" fill="#22d3ee">DEVELOPER</text>
+
+          <!-- Subtle Sparkle Highlights -->
+          <path d="M150 56 L152 62 L158 64 L152 66 L150 72 L148 66 L142 64 L148 62 Z" fill="#ffffff" opacity="0.9" />
+          <path d="M98 152 L99.5 156 L103.5 157.5 L99.5 159 L98 163 L96.5 159 L92.5 157.5 L96.5 156 Z" fill="#e0f2fe" opacity="0.85" />
+        </svg>
+      </div>
+
+      <!-- Skill Pills Row -->
+      <div id="skills-row" class="mt-6 flex flex-wrap items-center justify-center gap-2">
+        <!-- Populated via JS -->
+      </div>
+
+      <!-- Name -->
+      <h1 id="profile-name" class="mt-6 text-[34px] leading-tight font-extrabold tracking-tight name-glow">
+        Nexo
+      </h1>
+
+      <!-- Subtitle / Role -->
+      <p id="profile-role" class="mt-1 text-[17px] font-semibold text-[#1da1f2]">
+        Developer
+      </p>
+
+      <!-- Bio -->
+      <p id="profile-bio" class="mt-5 text-[14.5px] leading-[1.68] text-[#cbd5e1] max-w-[300px] font-normal">
+        Passionate developer creating innovative Telegram bots and mastering modern web technologies. Always learning, always building something amazing.
+      </p>
+
+      <!-- Telegram CTA Button -->
+      <a 
+        id="telegram-link"
+        href="https://t.me/NexoDeveloper" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="telegram-btn mt-8 w-full py-3.5 px-6 rounded-full flex items-center justify-center gap-2.5 text-white font-semibold text-[15px]"
+      >
+        <!-- White Circle with Telegram Paper Plane Icon -->
+        <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center shrink-0">
+          <svg class="w-3.5 h-3.5 text-[#0ea5e9] -ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/>
+          </svg>
+        </span>
+        <span id="telegram-label">Contact Me on Telegram</span>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-8 text-center">
+    <p id="footer-copyright" class="text-[13px] tracking-wider text-[#64748b] font-normal">
+      © 2026 NEXO DEVELOPER
+    </p>
+  </footer>
+
+  <!-- Render Logic -->
+  <script>
+    function renderProfile() {
+      const cfg = PROFILE_CONFIG;
+
+      document.title = cfg.pageTitle;
+      document.getElementById('profile-name').textContent = cfg.name;
+      document.getElementById('profile-role').textContent = cfg.role;
+      document.getElementById('profile-bio').textContent = cfg.bio;
+      document.getElementById('telegram-label').textContent = cfg.telegramText;
+      document.getElementById('telegram-link').href = cfg.telegramUrl;
+      document.getElementById('footer-copyright').textContent = cfg.copyright;
+
+      // Custom avatar image if provided
+      if (cfg.avatarUrl && cfg.avatarUrl.trim() !== "") {
+        const wrapper = document.getElementById('avatar-wrapper');
+        wrapper.innerHTML = `<img src="${cfg.avatarUrl}" alt="${cfg.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x200/0f172a/38bdf8?text=${encodeURIComponent(cfg.name)}'" />`;
+      }
+
+      // Render Skill Pills
+      const skillsRow = document.getElementById('skills-row');
+      skillsRow.innerHTML = cfg.skills.map(skill => `
+        <span class="skill-pill px-3.5 py-1 rounded-full text-[13px] font-medium">
+          ${skill}
+        </span>
+      `).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', renderProfile);
+  </script>
+</body>
+</html>
